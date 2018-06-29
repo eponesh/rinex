@@ -42,6 +42,6 @@ observation.start()
 
 ## Supported File Formats
 
-### Obervation file - .YYO
-### GPS navigation file - .YYN
-### GLONASS navigation file - .YYG
+#### Observation file - `.YYO`
+#### GPS navigation file - `.YYN`
+#### GLONASS navigation file - `.YYG`
