@@ -38,7 +38,7 @@ observation.start()
 
 **inputFilePath** - full path with file name. Example: **"./processing/input/novt1780.18O"**.
 
-**outputFilePath** - full path with file name. Example: **"./processing/output/novt1780.18O"**. **Important!** File format will be in JSON: **"novt1780.18O.json"**.
+**outputFilePath (optional)** - full path with file name. Example: **"./processing/output/novt1780.18O"**. **Important!** File format will be in JSON: **"novt1780.18O.json"**.
 
 ## Supported File Formats
 
