@@ -56,18 +56,18 @@ Output object has a structure:
 {
     // Header of file
     header: {
-        ver:"2.11",
-        typeOfData:"obs",
-        approxPosition:{
+        ver: "2.11",
+        typeOfData: "obs" || "gln" || "gps",
+        approxPosition: {
             "X":"452260.6174",
             "Y":"3635872.0696",
             "Z":"5203456.6948"
          },
-         wavelengthFact:{
+         wavelengthFact: {
             "L1":"1",
             "L2":"1"
          },
-         observeTypes:[
+         observeTypes: [
              "L1",
              "L2",
              "L5",
@@ -82,7 +82,20 @@ Output object has a structure:
              "S1",
              "S2",
              "S5"
-         ]
+         ],
+         ionAlpha: [
+            4.6566e-9,
+            1.4901e-8,
+            -5.9605e-8,
+            -1.1921e-7
+         ],
+         ionBeta: [
+            81920,
+            98304,
+            -65536,
+            -524290
+         ],
+         leapSeconds": 18
     }
 }
 ```
