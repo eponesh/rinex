@@ -23,11 +23,12 @@ How to use:
 // Create instance
 let obervation = new Rinex(inputFilePath, outputFilePath);
 
-// initialize conver process
+// initialize convert process
 observation.start()
     .then(output => {
         // Do something with output
-    })catch(err=>{
+    })
+    .catch(err=>{
         throw err;
     });
 ```
