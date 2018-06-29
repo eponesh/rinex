@@ -35,6 +35,8 @@ observation.start()
 ```
 
 ## Rinex(`inputFilePath`, `outputFilePath`)
+
 **inputFilePath** - full path with file name.
+---
 **Example:** "./processing/input/novt1780.18O".
 ---
