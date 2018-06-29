@@ -45,3 +45,44 @@ observation.start()
 #### Observation file - `.YYO`
 #### GPS navigation file - `.YYN`
 #### GLONASS navigation file - `.YYG`
+
+## Output file/object information
+
+Output file is JSON decoded string of output object.
+
+Output object has a structure: 
+
+```js
+{
+    // Header of file
+    header: {
+        "ver":"2.11",
+        "typeOfData":"obs",
+        "approxPosition":{
+            "X":"452260.6174",
+            "Y":"3635872.0696",
+            "Z":"5203456.6948"
+         },
+         "wavelengthFact":{
+            "L1":"1",
+            "L2":"1"
+         },
+         "observeTypes":[
+             "L1",
+             "L2",
+             "L5",
+             "C1",
+             "C2",
+             "P1",
+             "P2",
+             "C5",
+             "D1",
+             "D2",
+             "D5",
+             "S1",
+             "S2",
+             "S5"
+         ]
+    }
+}
+```
