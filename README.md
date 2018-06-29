@@ -11,7 +11,7 @@ npm install node-rinex
 ## Using
 
 Rinex converter based on file system.
----
+
 Object:
 
 ```js
@@ -37,6 +37,6 @@ observation.start()
 ## Rinex(`inputFilePath`, `outputFilePath`)
 
 **inputFilePath** - full path with file name.
----
+
 **Example:** "./processing/input/novt1780.18O".
----
+
