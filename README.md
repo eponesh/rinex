@@ -56,18 +56,18 @@ Output object has a structure:
 {
     // Header of file
     header: {
-        "ver":"2.11",
-        "typeOfData":"obs",
-        "approxPosition":{
+        ver:"2.11",
+        typeOfData:"obs",
+        approxPosition:{
             "X":"452260.6174",
             "Y":"3635872.0696",
             "Z":"5203456.6948"
          },
-         "wavelengthFact":{
+         wavelengthFact:{
             "L1":"1",
             "L2":"1"
          },
-         "observeTypes":[
+         observeTypes:[
              "L1",
              "L2",
              "L5",
