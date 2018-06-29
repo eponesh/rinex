@@ -40,3 +40,8 @@ observation.start()
 
 **outputFilePath** - full path with file name. Example: **"./processing/output/novt1780.18O"**. **Important!** File format will be in JSON: **"novt1780.18O.json"**.
 
+## Supported File Formats
+
+### Obervation file - .YYO
+### GPS navigation file - .YYN
+### GLONASS navigation file - .YYG
