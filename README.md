@@ -95,7 +95,7 @@ Output object has a structure:
             -65536,
             -524290
          ],
-         leapSeconds": 18
+         leapSeconds: 18
     }
 }
 ```
