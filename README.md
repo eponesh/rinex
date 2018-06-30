@@ -46,9 +46,9 @@ This method mix the data of observation and navigation and return `object` with 
 
 Example of using `mix` method:
 ```js
-let observation = new Rinex(fileIn + "O", fileOut + "O");
-let gps = new Rinex(fileIn + "N", fileOut + "N");
-let glonass = new Rinex(fileIn + "G", fileOut + "G");
+let observation = new Rinex("./in/novt1780.18O", "./out/novt1780.18O");
+let gps = new Rinex("./in/novt1780.18N", "./out/novt1780.18N");
+let glonass = new Rinex("./in/novt1780.18G", "./out/novt1780.18G");
 
 Promise.all([
     observation.start(), 
@@ -61,7 +61,7 @@ Promise.all([
         gps: gps,
         glonass: glonass
       },
-      satellitesOutputPath
+      "./out/sattelites/"
   ).then(out=>{
       // Do something with output
   })
