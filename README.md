@@ -34,11 +34,35 @@ observation.start()
     });
 ```
 
-## Rinex(`inputFilePath`, `outputFilePath`)
+### Rinex(`inputFilePath`, `outputFilePath`)
 
 **inputFilePath** - full path with file name. Example: **"./processing/input/novt1780.18O"**.
 
 **outputFilePath (optional)** - full path with file name. Example: **"./processing/output/novt1780.18O"**. **Important!** File format will be in JSON: **"novt1780.18O.json"**.
+
+### Rinex.mix(`data`,`outputFolderPath`)
+
+This method mix the data of observation and navigation and return `object` with header and settelites list or `files` of settelites (**R12.json**, **G03.json**...).
+
+Example of using `mix` method:
+```js
+let observation = new Rinex(fileIn + "O", fileOut + "O");
+let gps = new Rinex(fileIn + "N", fileOut + "N");
+let glonass = new Rinex(fileIn + "G", fileOut + "G");
+
+Promise.all([observation.start(), gps.start(), glonass.start()]).then(() => {
+  let rinexOut = Rinex.mix(
+    {
+      obs: observation,
+      gps: gps,
+      glonass: glonass
+    },
+    satellitesOutputPath
+  ).then(out=>{
+    // Do something with output
+  })
+});
+```
 
 ## Supported File Formats
 
