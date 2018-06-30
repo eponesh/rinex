@@ -29,7 +29,7 @@ observation.start()
     .then(output => {
         // Do something with output
     })
-    .catch(err=>{
+    .catch(err => {
         throw err;
     });
 ```
