@@ -50,16 +50,20 @@ let observation = new Rinex(fileIn + "O", fileOut + "O");
 let gps = new Rinex(fileIn + "N", fileOut + "N");
 let glonass = new Rinex(fileIn + "G", fileOut + "G");
 
-Promise.all([observation.start(), gps.start(), glonass.start()]).then(() => {
-  let rinexOut = Rinex.mix(
-    {
-      obs: observation,
-      gps: gps,
-      glonass: glonass
-    },
-    satellitesOutputPath
+Promise.all([
+    observation.start(), 
+    gps.start(), 
+    glonass.start()
+  ]).then(() => {
+      let rinexOut = Rinex.mix(
+        {
+          obs: observation,
+          gps: gps,
+          glonass: glonass
+        },
+        satellitesOutputPath
   ).then(out=>{
-    // Do something with output
+      // Do something with output
   })
 });
 ```
