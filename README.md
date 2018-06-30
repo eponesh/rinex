@@ -61,10 +61,13 @@ Promise.all([
         gps: gps,
         glonass: glonass
       },
-      "./out/sattelites/"
-  ).then(out=>{
-      // Do something with output
-  })
+      "./out/sattelites/")
+          .then(out=>{
+              // Do something with output
+          })
+          .catch(err=>{
+            trow err;
+          });
 });
 ```
 
