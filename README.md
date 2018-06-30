@@ -105,7 +105,50 @@ Output object's structure:
          ],
          leapSeconds: 18
     },
-    epoches: [],
+    // For observation
+    epoches: [
+        {
+            date: {
+              year: 18,
+              month: 6,
+              day: 27,
+              hour: 0,
+              minute: 0,
+              sec: 0.0000000
+            },
+            satellites: [
+              "R15", 
+              "R05", 
+              "S32", 
+              "R14", 
+              "G07"
+              //...
+            ],
+            satellitesCount: 19,
+            satellitesData: [
+                {
+                  L1: 110759464.885,
+                  L1_power: 8,
+                  L2: 86146256.659,
+                  L2_power: 6,
+                  L5: 0,
+                  L5_power: 0,
+                  C1: 20727114.987,
+                  C2: 20727122.505,
+                  P1: 20727114.81,
+                  P2: 20727122.439,
+                  C5: 0,
+                  D1: 2725.864,
+                  D2: 2120.128,
+                  D5: 0,
+                  S1: 49,
+                  S2: 38,
+                  S5: 0
+                }
+                // ...
+            ]
+        }
+    ],
     // For GPS
     satellites: [
         {
