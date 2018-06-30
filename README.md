@@ -25,13 +25,14 @@ How to use:
 let osbervation = new Rinex(inputFilePath, outputFilePath);
 
 // initialize convert process
-observation.start()
-    .then(output => {
-        // Do something with output
-    })
-    .catch(err => {
-        throw err;
-    });
+observation
+  .start()
+  .then(output => {
+    // Do something with output
+  })
+  .catch(err => {
+    throw err;
+  });
 ```
 
 ### Rinex(`inputFilePath`, `outputFilePath`)
@@ -45,14 +46,15 @@ observation.start()
 This method mix the data of observation and navigation and return `object` with header and settelites list or `files` of settelites (**R12.json**, **G03.json**...).
 
 Example of using `mix` method:
+
 ```js
 let observation = new Rinex("./in/novt1780.18O", "./out/novt1780.18O");
 let gps = new Rinex("./in/novt1780.18N", "./out/novt1780.18N");
 let glonass = new Rinex("./in/novt1780.18G", "./out/novt1780.18G");
 
 Promise.all([
-    observation.start(), 
-    gps.start(), 
+    observation.start(),
+    gps.start(),
     glonass.start()
   ]).then(() => {
       let rinexOut = Rinex.mix(
@@ -74,7 +76,9 @@ Promise.all([
 ## Supported File Formats
 
 #### Observation file - `.YYO`
+
 #### GPS navigation file - `.YYN`
+
 #### GLONASS navigation file - `.YYG`
 
 ## Output file/object information
@@ -87,12 +91,12 @@ More info at <http://users.ntua.gr/ddeli/satgeodesy/Askiseis/Askisi_3/rinex211.p
 
 Russian version <http://meteolab.ru/doc/rinex211rus.pdf>
 
-Output object's structure: 
+Output object's structure:
 
 ```js
 {
     // Header of file
-    // This example mixed from observation, 
+    // This example mixed from observation,
     // gps and glonass navigation data
     header: {
         ver: 2.11,
@@ -148,10 +152,10 @@ Output object's structure:
               sec: 0.0000000
             },
             satellites: [
-              "R15", 
-              "R05", 
-              "S32", 
-              "R14", 
+              "R15",
+              "R05",
+              "S32",
+              "R14",
               "G07"
               //...
             ],
@@ -252,9 +256,11 @@ Output object's structure:
     ]
 }
 ```
+
 ### Output of Rinex.`mix`
 
 As object
+
 ```js
 {
   header: mixedHeader,
@@ -270,6 +276,7 @@ As object
 ```
 
 As sattelite file
+
 ```js
 {
   header: mixedHeader,
