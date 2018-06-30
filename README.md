@@ -50,11 +50,19 @@ observation.start()
 
 Output file is JSON decoded string of output object.
 
+Parameters of objects equal Rinex names of variablels.
+
+More info at <http://users.ntua.gr/ddeli/satgeodesy/Askiseis/Askisi_3/rinex211.pdf>
+
+Russian version <http://meteolab.ru/doc/rinex211rus.pdf>
+
 Output object has a structure: 
 
 ```js
 {
     // Header of file
+    // This example mixed from observation, 
+    // gps and glonass navigation data
     header: {
         ver: 2.11,
         typeOfData: "obs" || "gln" || "gps",
