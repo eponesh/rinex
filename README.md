@@ -56,12 +56,12 @@ Promise.all([
     glonass.start()
   ]).then(() => {
       let rinexOut = Rinex.mix(
-        {
-          obs: observation,
-          gps: gps,
-          glonass: glonass
-        },
-        satellitesOutputPath
+      {
+        obs: observation,
+        gps: gps,
+        glonass: glonass
+      },
+      satellitesOutputPath
   ).then(out=>{
       // Do something with output
   })
