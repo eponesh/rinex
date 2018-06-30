@@ -252,3 +252,30 @@ Output object's structure:
     ]
 }
 ```
+### Output of Rinex.`mix`
+
+As object
+```js
+{
+  header: mixedHeader,
+  G02: {
+    observations: obsOfCurrentSattele,
+    navigation: navOfCurrentSatteleGPS
+  },
+  R09: {
+    observations: obsOfCurrentSattele,
+    navigation: navOfCurrentSatteleGLONASS
+  }
+}
+```
+
+As sattelite file
+```js
+{
+  header: mixedHeader,
+  data: {
+    observations: obsOfCurrentSattele,
+    navigation: navOfCurrentSatteleGPSorGLONASS
+  }
+}
+```
