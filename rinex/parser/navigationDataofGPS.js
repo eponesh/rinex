@@ -24,51 +24,51 @@ function getOrbitsInfo(i, epoch, data) {
 }
 
 module.exports = function(header, i, data) {
-  // Массив эпох
-  let epoches = [];
+  // Массив спутников
+  let satellites = [];
 
-  // Пока не кончатся эпохи
+  // Пока не кончатся спутники
   while (i < data.length - 1) {
-    let epoch = {};
+    let satellite = {};
 
     // Строка данных
     let str = data[i];
     i++;
 
-    // Строка данных об эпохе
+    // Строка данных о спутнике
     let strInfo = RinexClearString(str.substr(0, 22).split(/\s+/g));
 
     // Строка данных о часах спутника
     let strClock = str.substr(22, 60);
 
     // Номер спутника
-    epoch.satellite = strInfo[0];
+    satellite.satellite = parseInt(strInfo[0]);
 
     // Дата
-    epoch.year = parseInt(strInfo[1]);
-    epoch.month = parseInt(strInfo[2]);
-    epoch.day = parseInt(strInfo[3]);
-    epoch.hour = parseInt(strInfo[4]);
-    epoch.min = parseInt(strInfo[5]);
-    epoch.sec = parseFloat(strInfo[6]);
+    satellite.year = parseInt(strInfo[1]);
+    satellite.month = parseInt(strInfo[2]);
+    satellite.day = parseInt(strInfo[3]);
+    satellite.hour = parseInt(strInfo[4]);
+    satellite.min = parseInt(strInfo[5]);
+    satellite.sec = parseFloat(strInfo[6]);
 
     // Сдвиг часов спутника
-    epoch.clockBias = RinexParsePow(strClock.substr(0, 19));
+    satellite.clockBias = RinexParsePow(strClock.substr(0, 19));
 
     // Скорость ухода часов спутника
-    epoch.clockDrift = RinexParsePow(strClock.substr(19, 19));
+    satellite.clockDrift = RinexParsePow(strClock.substr(19, 19));
 
     // Ускорение ухода часов спутника
-    epoch.clockDriftRate = RinexParsePow(strClock.substr(38, 19));
+    satellite.clockDriftRate = RinexParsePow(strClock.substr(38, 19));
 
     // Получение данных всех орбит
-    getOrbitsInfo(i, epoch, data);
+    getOrbitsInfo(i, satellite, data);
     i += 7;
 
     // Добавляем эпоху в массив эпох
-    epoches.push(epoch);
+    satellites.push(satellite);
   }
 
   // Возвращаем обработанные эпохи
-  return epoches;
+  return satellites;
 };

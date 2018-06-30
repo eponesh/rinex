@@ -21,11 +21,11 @@ function getOrbitsInfo(i, epoch, data) {
 
 module.exports = function(header, i, data) {
   // Массив эпох
-  let epoches = [];
+  let satellites = [];
 
   // Пока не кончатся эпохи
   while (i < data.length - 1) {
-    let epoch = {};
+    let satellite = {};
 
     // Строка данных
     let str = data[i];
@@ -38,33 +38,33 @@ module.exports = function(header, i, data) {
     let strClock = str.substr(22, 60);
 
     // Номер спутника
-    epoch.satellite = strInfo[0];
+    satellite.satellite = parseInt(strInfo[0]);
 
     // Дата
-    epoch.year = parseInt(strInfo[1]);
-    epoch.month = parseInt(strInfo[2]);
-    epoch.day = parseInt(strInfo[3]);
-    epoch.hour = parseInt(strInfo[4]);
-    epoch.min = parseInt(strInfo[5]);
-    epoch.sec = parseFloat(strInfo[6]);
+    satellite.year = parseInt(strInfo[1]);
+    satellite.month = parseInt(strInfo[2]);
+    satellite.day = parseInt(strInfo[3]);
+    satellite.hour = parseInt(strInfo[4]);
+    satellite.min = parseInt(strInfo[5]);
+    satellite.sec = parseFloat(strInfo[6]);
 
     // Сдвиг часов спутника
-    epoch.clockBias = RinexParsePow(strClock.substr(0, 19));
+    satellite.clockBias = RinexParsePow(strClock.substr(0, 19));
 
     // Относительный сдвиг частоты
-    epoch.frequencyBias = RinexParsePow(strClock.substr(19, 19));
+    satellite.frequencyBias = RinexParsePow(strClock.substr(19, 19));
 
     // Время сообщения
-    epoch.messageTime = RinexParsePow(strClock.substr(38, 19));
+    satellite.messageTime = RinexParsePow(strClock.substr(38, 19));
 
     // Получение данных всех орбит
-    getOrbitsInfo(i, epoch, data);
+    getOrbitsInfo(i, satellite, data);
     i += 3;
 
     // Добавляем эпоху в массив эпох
-    epoches.push(epoch);
+    satellites.push(satellite);
   }
 
   // Возвращаем обработанные эпохи
-  return epoches;
+  return satellites;
 };
