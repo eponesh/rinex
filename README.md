@@ -64,10 +64,10 @@ Promise.all([
         glonass: glonass
       },
       "./out/sattelites/")
-          .then(out=>{
+          .then(out => {
               // Do something with output
           })
-          .catch(err=>{
+          .catch(err => {
             trow err;
           });
 });
