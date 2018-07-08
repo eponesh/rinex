@@ -40,6 +40,11 @@ export default function(lineOfData: string, header): boolean {
       for (i; i < def.length; i++) header.observeTypes.push(def[i]);
       break;
 
+    // Интервал измерений
+    case "INTERVAL":
+      header.interval = parseFloat(def[0]);
+      break;
+
     // Параметры A0-A3 ионосферной модели
     case "ION ALPHA":
       header.ionAlpha = [];
@@ -66,4 +71,4 @@ export default function(lineOfData: string, header): boolean {
       return true;
   }
   return false;
-};
+}
