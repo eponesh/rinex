@@ -15,6 +15,7 @@ class DecodedRinexHeader {
     L1;
     L2;
   };
+  interval?: number;
   ionAlpha?: number[];
   ionBeta?: number[];
   leapSeconds?: number;

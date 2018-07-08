@@ -14,18 +14,20 @@ function convertRinex(data: string): DecodedRinex {
         i,
         arrayOfLines
       );
-      if (outputDecoded.header.typeOfData === "obs") {
-        outputDecoded.epoches = parsedOutputData;
-        outputDecoded.epochesLength = parsedOutputData.length;
-      } else if (
-        outputDecoded.header.typeOfData === "gps" ||
-        outputDecoded.header.typeOfData === "gln"
-      ) {
-        outputDecoded.satellites = parsedOutputData;
-        outputDecoded.satellitesLength = parsedOutputData.length;
-      } else {
-        outputDecoded.data = parsedOutputData;
-        outputDecoded.dataLength = parsedOutputData.length;
+      switch (outputDecoded.header.typeOfData) {
+        case "obs":
+          outputDecoded.epoches = parsedOutputData;
+          outputDecoded.epochesLength = parsedOutputData.length;
+          break;
+        case "gps":
+        case "gln":
+          outputDecoded.satellites = parsedOutputData;
+          outputDecoded.satellitesLength = parsedOutputData.length;
+          break;
+        default:
+          outputDecoded.data = parsedOutputData;
+          outputDecoded.dataLength = parsedOutputData.length;
+          break;
       }
       break;
     }
