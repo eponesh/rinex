@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "target": "es2015",
+    "module": "commonjs",
+    "outDir": "build/src",
+    "rootDir": "src"
+  },
+  "include": ["src/**/*"]
+}

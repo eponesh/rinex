@@ -1,0 +1,39 @@
+{
+  "name": "node-rinex",
+  "version": "1.0.0",
+  "description": "Convert RINEX files to JSON",
+  "main": "./build/src/rinexParser.js",
+  "scripts": {
+    "start": "tsc --project tsconfig.json",
+    "watch": "tsc --project tsconfig.json --watch",
+    "example": "node example/example.js",
+    "test": "mocha -r ts-node/register test/**/*test.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eponesh/rinex.git"
+  },
+  "keywords": [
+    "rinex",
+    "gps",
+    "glonass",
+    "gnss",
+    "node-rinex"
+  ],
+  "author": "Eponesh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eponesh/rinex/issues"
+  },
+  "homepage": "https://github.com/eponesh/rinex#readme",
+  "devDependencies": {
+    "@types/chai": "^4.1.4",
+    "@types/es6-promise": "^3.3.0",
+    "@types/mocha": "^5.2.4",
+    "@types/node": "^10.5.2",
+    "chai": "^4.1.2",
+    "mocha": "^5.2.0",
+    "ts-node": "^7.0.0",
+    "typescript": "^2.9.2"
+  }
+}
