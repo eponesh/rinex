@@ -2,12 +2,6 @@
 
 Rinex converter for node.js
 
-## Instalation
-
-```bash
-npm install node-rinex
-```
-
 ## Using
 
 Rinex converter based on file system.
